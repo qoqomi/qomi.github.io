@@ -97,3 +97,27 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 The fastest way to combine your favorite tools and APIs to build the fastest sites, stores, and apps for the web. And also the best place to build, deploy, and host your Gatsby sites.
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+
+RAG에 대한 모델링 표나 첨부가 필요하다. 
+우리가 준비할때는 예상질문 뽑아놓아야 하고 특히나 채용공고 숙지
+자격요건이나 우대사항 중에 모르는 기술이나 지식은 개념까지는 준비해서 가야한다.
+
+지원동기든 자기소개든 답변 미리 준비해야한다. 
+
+포트폴리오 
+- 내가 구현한 부분 내용 위주로 작성한다.
+- 어떤걸 중점으로 기획 사용한 이유를 적을 것 
+
+프로젝트 1개당 5~8페이지로 기술한다.
+많다면 서술식보다는 명사형
+포트폴리오 평가요소
+- 성장가능성 
+- 활용 + 직무 활용 등 
+업무수행과정을 담는 것 
+트러블 슈팅이나 문제 해결 능력 
+* 자료가 없더라도 본인이 표를 만들어서 이미지를 넣어라. 유의미한 이미지를 만들어야 한다. 
+
+
+여기 지금 워라벨 뿐 아니라 그냥 루팡이야 
+이제 
