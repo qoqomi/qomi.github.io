@@ -1,27 +1,21 @@
-
-
-import { ContentProps, PostItemListProps } from '@/typings/typings';
+import { Post } from '@/typings/typings';
 import { PostItemListWrap } from './PostItemList.style';
 import PostItem from './PostItem';
 import useInfiniteScroll from '@/hooks/useInfiniteScroll';
 
-function PostItemList({ posts }: PostItemListProps) {
-    const { containerRef } = useInfiniteScroll(posts)
-  
+function PostItemList({ posts }: { posts: Post[] }) {
+  const { containerRef, postList } = useInfiniteScroll(posts);
+
   return (
     <PostItemListWrap ref={containerRef}>
-      {posts.map(
-        ({
-          node: {
-            id,
-            fields: { slug },
-            timeToRead,
-            frontmatter,
-          },
-        }: ContentProps) => (
-          <PostItem {...frontmatter} link={slug} key={id} time={timeToRead} />
-        ),
-      )}
+      {postList.map(({ slug, frontmatter, readingTime }) => (
+        <PostItem
+          key={slug}
+          {...frontmatter}
+          link={`/blog/${slug}`}
+          time={readingTime}
+        />
+      ))}
     </PostItemListWrap>
   );
 }

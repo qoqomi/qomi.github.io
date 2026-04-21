@@ -1,19 +1,15 @@
+import Image from 'next/image';
 import React from 'react';
 
-import { Img, ImgWrap, PlaceholderWrap } from './ProfileImg.style';
-
+import { ImgWrap } from './ProfileImg.style';
 import useProfileImage from '@/hooks/useProfileImage';
 
 function ProfileImg() {
-  const profile = useProfileImage();
-  
-  if (!profile) {
-    return <PlaceholderWrap />;
-  }
+  const src = useProfileImage();
 
   return (
     <ImgWrap>
-      <Img image={profile.childImageSharp.gatsbyImageData} alt="profile" />
+      <Image src={src} alt="profile" fill style={{ objectFit: 'cover' }} />
     </ImgWrap>
   );
 }

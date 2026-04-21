@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import Link from 'next/link';
 
 import { headerMQ, minimumMQ } from '@/styles/theme';
 
@@ -35,12 +34,6 @@ export const Nav = styled.nav`
 
 export const LogoWrap = styled(Link)`
   width: 100%;
-`;
-
-export const Logo = styled(GatsbyImage)`
-  width: 12rem;
-  object-fit: cover;
-  isolation: isolate;
 `;
 
 export const LogoText = styled(Link)`

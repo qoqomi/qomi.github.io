@@ -1,22 +1,28 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent } from 'react';
 
-import { useCategoryList } from '@/hooks/useCategoryList'
-import { Category, CategoryListWrap, CountBadge } from './CategoryList.style'
+import { CategoryItem } from '@/typings/typings';
+import { Category, CategoryListWrap, CountBadge } from './CategoryList.style';
 
+interface CategoryListProps {
+  categories: CategoryItem[];
+}
 
-const CategoryList: FunctionComponent = function () {
-  const categoryList = useCategoryList()
-
+const CategoryList: FunctionComponent<CategoryListProps> = function ({
+  categories,
+}) {
   return (
     <CategoryListWrap>
-      {categoryList.map((category) => (
-        <Category key={category.fieldValue} to={`/category?q=${category.fieldValue}`}>
+      {categories.map(category => (
+        <Category
+          key={category.fieldValue}
+          href={`/category?q=${category.fieldValue}`}
+        >
           {category.fieldValue}
           <CountBadge>{category.totalCount}</CountBadge>
         </Category>
       ))}
     </CategoryListWrap>
-  )
-}
+  );
+};
 
-export default CategoryList
+export default CategoryList;

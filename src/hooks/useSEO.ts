@@ -1,26 +1,11 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import { SEOProps } from 'typings/typings';
+const SITE_CONFIG = {
+  title: 'My Blog',
+  description: '개인 기술 블로그입니다.',
+  siteUrl: 'https://example.com',
+} as const;
 
+export type SiteConfig = typeof SITE_CONFIG;
 
-function useSEO() {
-  const { site, file } = useStaticQuery<SEOProps>(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            siteUrl
-          }
-        }
-        file(name: { eq: "cover" }) {
-          publicURL
-        }
-      }
-    `,
-  );
-
-  return { site, file };
+export default function useSEO(): SiteConfig {
+  return SITE_CONFIG;
 }
-
-export default useSEO;

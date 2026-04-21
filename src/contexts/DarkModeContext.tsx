@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { ThemeProvider } from '@emotion/react';
 
-import { darkTheme, theme } from 'styles/theme';
+import { AppTheme, darkTheme, theme } from 'styles/theme';
 
 type DarkModeContextType = {
   isDark: boolean;
@@ -32,7 +32,7 @@ export function DarkModeProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <DarkModeContext.Provider value={{ isDark, toggle }}>
-      <ThemeProvider theme={isDark ? darkTheme : theme}>
+      <ThemeProvider theme={isDark ? (darkTheme as AppTheme) : theme}>
         {children}
       </ThemeProvider>
     </DarkModeContext.Provider>

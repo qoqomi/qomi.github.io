@@ -5,7 +5,6 @@ import {
   Contents,
   Copyright,
   FooterWrap,
-  Logo,
   LogoText,
   LogoWrap,
   Menu,
@@ -14,29 +13,21 @@ import {
   NavMoreItem,
   NavTitle,
 } from './Footer.style';
-
 import { COPYRIGHT, NAV_LINK_ITEMS, RSS_URL } from '@/constants/constants';
-import useLogoImage from '@/hooks/useLogoImage';
 
 function Footer() {
-  const logo = useLogoImage();
-
   return (
     <FooterWrap>
       <Contents>
         <LogoWrap>
-          {logo ? (
-            <Logo image={logo.childImageSharp.gatsbyImageData} alt="블로그 로고" />
-          ) : (
-            <LogoText to="/">My Blog</LogoText>
-          )}
+          <LogoText href="/">My Blog</LogoText>
           <Copyright>{COPYRIGHT}</Copyright>
         </LogoWrap>
         <Menu>
           <Nav>
             <NavTitle>Links</NavTitle>
             {NAV_LINK_ITEMS.map(item => (
-              <NavLinkItem key={item.title} to={item.url}>
+              <NavLinkItem key={item.title} href={item.url}>
                 {item.title}
               </NavLinkItem>
             ))}

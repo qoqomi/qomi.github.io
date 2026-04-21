@@ -1,49 +1,25 @@
-import { IGatsbyImageData } from 'gatsby-plugin-image';
-
-export type DescriptionProps = {
+export interface PostFrontmatter {
   title: string;
+  summary: string;
   date: string;
   category: string[];
-  time: number;
-};
+  thumbnail?: string | null;
+}
 
-export type ThumbnailProps = {
-  thumbnail: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-    publicURL?: string;
-  };
-};
+export interface Post {
+  slug: string;
+  frontmatter: PostFrontmatter;
+  content?: string;
+  readingTime: number;
+}
 
-export type FrontmatterProps = {
+export type PostItemProps = {
+  title: string;
   summary: string;
-} & DescriptionProps &
-  ThumbnailProps;
-
-export type ContentProps = {
-  node: {
-    id: string;
-    fields: {
-      slug: string;
-    };
-    timeToRead: number;
-    frontmatter: FrontmatterProps;
-  };
-};
-
-export type PostItemListProps = {
-  posts: ContentProps[];
-};
-
-export type PostItemProps = FrontmatterProps & { link: string; time: number };
-
-export type IndexProps = {
-  data: {
-    posts: {
-      edges: ContentProps[];
-    };
-  };
+  date: string;
+  thumbnail?: string | null;
+  link: string;
+  time: number;
 };
 
 export type CategoryItem = {
@@ -57,15 +33,19 @@ export type MetaProps = {
   cover?: string;
 };
 
-export type SEOProps = {
-  site: {
-    siteMetadata: {
-      title: string;
-      description: string;
-      siteUrl: string;
-    };
-  };
-  file: {
-    publicURL: string;
-  };
-};
+// Archive
+export type QueueType = 'Later' | 'Shortlist' | 'Archive';
+export type ContentType = 'youtube' | 'article';
+
+export interface ArchiveItem {
+  id: string;
+  url: string;
+  type: ContentType;
+  title: string;
+  summary: string;
+  tags: string[];
+  queue: QueueType;
+  memo: string | null;
+  created_at: string;
+  read_at: string | null;
+}

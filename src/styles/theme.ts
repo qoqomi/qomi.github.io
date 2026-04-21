@@ -11,7 +11,24 @@ export const customMQ = mq(breakpoints.mobile);
 export const headerMQ = mq(breakpoints.header);
 export const minimumMQ = mq(breakpoints.minimum);
 
-export const theme = {
+export type AppTheme = {
+  colors: {
+    background: string;
+    surface: string;
+    black_200: string;
+    black_400: string;
+    darkgray_100: string;
+    darkgray_300: string;
+    darkgray_800: string;
+    lightgray_500: string;
+    text_1000: string;
+    lightprimary_500: string;
+    primary_1000: string;
+    white_1000: string;
+  };
+};
+
+export const theme: AppTheme = {
   colors: {
     background: 'rgba(255, 255, 255, 1)',
     surface: 'rgba(255, 255, 255, 0.7)',
@@ -26,9 +43,9 @@ export const theme = {
     primary_1000: 'rgba(254, 190, 152, 1)',
     white_1000: 'rgba(255, 255, 255, 1)',
   },
-} as const;
+};
 
-export const darkTheme = {
+export const darkTheme: AppTheme = {
   colors: {
     background: 'rgba(24, 24, 27, 1)',
     surface: 'rgba(24, 24, 27, 0.85)',
@@ -43,6 +60,4 @@ export const darkTheme = {
     primary_1000: 'rgba(254, 190, 152, 1)',
     white_1000: 'rgba(255, 255, 255, 1)',
   },
-} as const;
-
-export type AppTheme = typeof theme;
+};

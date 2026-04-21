@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import Link from 'next/link';
 
 import { customMQ, headerMQ } from '@/styles/theme';
 
@@ -40,12 +39,6 @@ export const LogoWrap = styled.div`
   ${customMQ} {
     margin: 0 0 4rem 0;
   }
-`;
-
-export const Logo = styled(GatsbyImage)`
-  width: 12rem;
-  object-fit: cover;
-  isolation: isolate;
 `;
 
 export const LogoText = styled(Link)`

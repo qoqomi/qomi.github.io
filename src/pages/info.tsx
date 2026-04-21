@@ -1,37 +1,14 @@
-import Text from 'components/Text'
-import { graphql } from 'gatsby';
-import React, { FunctionComponent } from "react";
+import React from 'react';
 
-type InfoPageProps = {
-  data: {
-    site: {
-      siteMetadata: {
-        author: string;
-        description: string;
-        title: string;
-      };
-    };
-  };
-};
+import SEO from '@/components/Layout/SEO';
 
-const InfoPage: FunctionComponent<InfoPageProps> = function({data}:InfoPageProps) {
-    return <>
-<a href='/info/'>dddd</a>
-<Text text={`Hello ${data.site.siteMetadata.title}`} />
-  </>
-};      
+function InfoPage() {
+  return (
+    <>
+      <SEO title="Info" />
+      <div>Info 페이지</div>
+    </>
+  );
+}
 
 export default InfoPage;
-
-
-export const metaDataQuery = graphql`
-query {
-  site {
-    siteMetadata {
-      author
-      description
-      title
-    }
-  }
-}
-`

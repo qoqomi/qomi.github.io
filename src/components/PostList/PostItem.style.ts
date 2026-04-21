@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
-import { customMQ } from 'styles/theme';
+import Link from 'next/link';
 
+import { customMQ } from 'styles/theme';
 
 export const PostItemWrap = styled(Link)`
   display: flex;

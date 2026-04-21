@@ -1,8 +1,7 @@
 import { Global, css, useTheme } from '@emotion/react';
 import emotionReset from 'emotion-reset';
 
-import { AppTheme } from './theme';
-import { customMQ } from './theme';
+import { AppTheme, customMQ } from './theme';
 
 const GlobalStyle = function () {
   const theme = useTheme() as AppTheme;
@@ -23,8 +22,7 @@ const GlobalStyle = function () {
 
     html,
     body,
-    #___gatsby,
-    #gatsby-focus-wrapper {
+    #__next {
       width: 100%;
       height: 100%;
       color: ${theme.colors.text_1000};

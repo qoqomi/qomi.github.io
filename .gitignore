@@ -61,8 +61,11 @@ out/
 # Mac files
 .DS_Store
 
-# Content (마크다운 포스트)
-content/
+# 환경변수
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Claude Code
 .claude/settings.local.json

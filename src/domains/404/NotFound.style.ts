@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 
 export const NotFoundWrap = styled.div`
   display: flex;

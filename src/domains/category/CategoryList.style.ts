@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
+import Link from 'next/link';
+
 import { customMQ } from 'styles/theme';
 
 export const CategoryListWrap = styled.div`

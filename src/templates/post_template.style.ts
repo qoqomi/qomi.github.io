@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import Image from 'next/image';
 
 import { customMQ } from 'styles/theme';
 
@@ -7,7 +7,7 @@ export const PostWrap = styled.article`
   padding: 4rem 0 8rem;
 `;
 
-export const Thumbnail = styled(GatsbyImage)`
+export const Thumbnail = styled(Image)`
   width: 100%;
   max-height: 40rem;
   border-radius: 1.2rem;
@@ -62,20 +62,31 @@ export const PostContent = styled.div`
   line-height: 180%;
   word-break: keep-all;
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 5rem 0 1.2rem;
     font-weight: 600;
     line-height: 140%;
   }
 
-  h1 { font-size: 2.8rem; }
+  h1 {
+    font-size: 2.8rem;
+  }
   h2 {
     font-size: 2.4rem;
     padding-bottom: 1rem;
     border-bottom: 0.1rem solid ${props => props.theme.colors.darkgray_100};
   }
-  h3 { font-size: 2rem; }
-  h4 { font-size: 1.8rem; }
+  h3 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1.8rem;
+  }
 
   p {
     margin: 0 0 2rem;
@@ -86,10 +97,15 @@ export const PostContent = styled.div`
     text-decoration: underline;
   }
 
-  strong { font-weight: 600; }
-  em { font-style: italic; }
+  strong {
+    font-weight: 600;
+  }
+  em {
+    font-style: italic;
+  }
 
-  ul, ol {
+  ul,
+  ol {
     margin: 0 0 1.6rem 2rem;
   }
 
@@ -144,7 +160,8 @@ export const PostContent = styled.div`
     font-size: 1.4rem;
   }
 
-  th, td {
+  th,
+  td {
     padding: 1rem 1.4rem;
     border: 0.1rem solid ${props => props.theme.colors.darkgray_300};
     text-align: left;

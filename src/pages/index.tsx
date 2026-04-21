@@ -1,52 +1,33 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { GetStaticProps } from 'next';
 
-import { IndexProps } from '@/typings/typings';
 import SEO from '@/components/Layout/SEO';
 import Profile from '@/components/Profile/Profile';
 import PostItemList from '@/components/PostList/PostItemList';
+import { getAllPosts } from '@/lib/posts';
+import { Post } from '@/typings/typings';
 
-function IndexPage({
-  data: {
-    posts: { edges },
-  },
-}: IndexProps) {
+interface IndexPageProps {
+  posts: Post[];
+}
 
+function IndexPage({ posts }: IndexPageProps) {
   return (
     <>
       <SEO />
       <Profile padding="6rem 0" />
-      <PostItemList posts={edges} />
+      <PostItemList posts={posts} />
     </>
   );
 }
 
-export const indexQuery = graphql`
-  {
-    posts: allMarkdownRemark(
-      sort: { frontmatter: { date: DESC } }
-    ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          timeToRead
-          frontmatter {
-            title
-            summary
-            date(formatString: "YYYY-MM-DD")
-            thumbnail {
-              childImageSharp {
-                gatsbyImageData(width: 820)
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = getAllPosts().map(({ slug, frontmatter, readingTime }) => ({
+    slug,
+    frontmatter,
+    readingTime,
+  }));
+  return { props: { posts } };
+};
 
 export default IndexPage;

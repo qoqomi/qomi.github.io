@@ -1,65 +1,48 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "my-blog",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\""
+  },
   "dependencies": {
+    "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
+    "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.14.1",
+    "@supabase/supabase-js": "^2.50.0",
     "emotion-reset": "^3.0.1",
-    "gatsby": "^5.14.6",
-    "gatsby-plugin-canonical-urls": "^5.16.0",
-    "gatsby-plugin-emotion": "^8.16.0",
-    "gatsby-plugin-image": "^3.14.0",
-    "gatsby-plugin-manifest": "^5.14.0",
-    "gatsby-plugin-page-creator": "^5.16.0",
-    "gatsby-plugin-react-helmet": "^6.16.0",
-    "gatsby-plugin-sharp": "^5.14.0",
-    "gatsby-plugin-typescript": "^5.16.0",
-    "gatsby-remark-copy-linked-files": "^6.16.0",
-    "gatsby-remark-external-links": "^0.0.4",
-    "gatsby-remark-images": "^7.16.0",
-    "gatsby-remark-prismjs": "^7.16.0",
-    "gatsby-remark-smartypants": "^6.16.0",
-    "gatsby-source-filesystem": "^5.14.0",
-    "gatsby-transformer-remark": "^6.16.0",
-    "gatsby-transformer-sharp": "^5.14.0",
-    "prismjs": "^1.30.0",
+    "gray-matter": "^4.0.3",
+    "next": "^14.2.0",
+    "next-mdx-remote": "^4.4.1",
     "query-string": "^9.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
     "react-icons": "^4"
   },
   "devDependencies": {
-    "@types/react-helmet": "^6.1.11",
+    "@mozilla/readability": "^0.5.0",
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
     "@typescript-eslint/eslint-plugin": "^8.54.0",
     "@typescript-eslint/parser": "^8.54.0",
+    "cheerio": "^1.0.0",
     "eslint": "^9.39.2",
+    "eslint-config-next": "^15.3.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
+    "jsdom": "^25.0.1",
+    "openai": "^4.0.0",
+    "playwright": "^1.50.0",
     "prettier": "^3.8.1",
-    "typescript": "^5.9.3"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "youtube-transcript": "^1.2.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  "license": "0BSD"
 }
