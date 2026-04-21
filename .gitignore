@@ -58,6 +58,11 @@ jspm_packages/
 .next/
 out/
 
+# Build output
+public/page-data/
+public/static/
+public/~partytown/
+
 # Mac files
 .DS_Store
 
