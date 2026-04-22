@@ -1,3 +1,6 @@
+import * as dotenv from 'dotenv';
+dotenv.config({ path: '.env.local' });
+
 import { pollMessages } from '../.claude/skills/slack-poller/scripts/poll_messages';
 import { sendResponse } from '../.claude/skills/slack-poller/scripts/send_response';
 import {
@@ -91,7 +94,8 @@ async function main() {
   let newLastTs = lastTs;
 
   for (const message of messages) {
-    const url = message.text.trim();
+    const raw = message.text.trim();
+    const url = raw.replace(/^<(.+?)(?:\|.*)?>$/, '$1');
     newLastTs = message.ts;
 
     console.log(`[agent] 처리 중: ${url}`);

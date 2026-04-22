@@ -34,7 +34,7 @@ create table agent_state (
 );
 
 -- 초기 offset 삽입
-insert into agent_state (key, value) values ('telegram_offset', '0');
+insert into agent_state (key, value) values ('slack_last_ts', '0');
 ```
 
 ## 3. RLS 설정
