@@ -1,8 +1,9 @@
+'use client';
+
 import styled from '@emotion/styled';
-import { useRouter } from 'next/router';
+import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
-import SEO from '@/components/Layout/SEO';
 import QueueBadge from '@/components/QueueBadge';
 import { supabase } from '@/lib/supabase';
 import { ArchiveItem, QueueType } from '@/typings/typings';
@@ -136,18 +137,18 @@ const MetaDate = styled.p`
 `;
 
 export default function ArchiveDetailPage() {
-  const { query } = useRouter();
+  const params = useParams();
   const [item, setItem] = useState<ArchiveItem | null>(null);
   const [memo, setMemo] = useState('');
   const [queueVal, setQueueVal] = useState<QueueType>('Later');
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    if (!query.id) return;
+    if (!params?.id) return;
     supabase
       .from('archive')
       .select('*')
-      .eq('id', query.id)
+      .eq('id', params.id)
       .single()
       .then(({ data }) => {
         if (data) {
@@ -157,7 +158,7 @@ export default function ArchiveDetailPage() {
           setQueueVal(item.queue);
         }
       });
-  }, [query.id]);
+  }, [params?.id]);
 
   const handleSave = async () => {
     if (!item) return;
@@ -173,56 +174,53 @@ export default function ArchiveDetailPage() {
   if (!item) return null;
 
   return (
-    <>
-      <SEO title={item.title} description={item.summary} />
-      <PageWrap>
-        <TopRow>
-          <QueueBadge queue={item.queue} />
-          <TypeLabel>{item.type}</TypeLabel>
-        </TopRow>
+    <PageWrap>
+      <TopRow>
+        <QueueBadge queue={item.queue} />
+        <TypeLabel>{item.type}</TypeLabel>
+      </TopRow>
 
-        <Title>{item.title}</Title>
-        <MetaDate>
-          {new Date(item.created_at).toLocaleDateString('ko-KR')}
-        </MetaDate>
+      <Title>{item.title}</Title>
+      <MetaDate>
+        {new Date(item.created_at).toLocaleDateString('ko-KR')}
+      </MetaDate>
 
-        <OriginalLink href={item.url} target="_blank" rel="noreferrer noopener">
-          {item.url}
-        </OriginalLink>
+      <OriginalLink href={item.url} target="_blank" rel="noreferrer noopener">
+        {item.url}
+      </OriginalLink>
 
-        <Summary>{item.summary}</Summary>
+      <Summary>{item.summary}</Summary>
 
-        <TagList>
-          {item.tags.map(tag => (
-            <Tag key={tag}>#{tag}</Tag>
-          ))}
-        </TagList>
+      <TagList>
+        {item.tags.map(tag => (
+          <Tag key={tag}>#{tag}</Tag>
+        ))}
+      </TagList>
 
-        <Divider />
+      <Divider />
 
-        <MemoSection>
-          <MemoLabel>큐 상태</MemoLabel>
-          <QueueSelect
-            value={queueVal}
-            onChange={e => setQueueVal(e.target.value as QueueType)}
-          >
-            <option value="Later">Later</option>
-            <option value="Shortlist">Shortlist</option>
-            <option value="Archive">Archive</option>
-          </QueueSelect>
+      <MemoSection>
+        <MemoLabel>큐 상태</MemoLabel>
+        <QueueSelect
+          value={queueVal}
+          onChange={e => setQueueVal(e.target.value as QueueType)}
+        >
+          <option value="Later">Later</option>
+          <option value="Shortlist">Shortlist</option>
+          <option value="Archive">Archive</option>
+        </QueueSelect>
 
-          <MemoLabel>메모</MemoLabel>
-          <MemoTextarea
-            value={memo}
-            onChange={e => setMemo(e.target.value)}
-            placeholder="개인 메모를 입력하세요..."
-          />
+        <MemoLabel>메모</MemoLabel>
+        <MemoTextarea
+          value={memo}
+          onChange={e => setMemo(e.target.value)}
+          placeholder="개인 메모를 입력하세요..."
+        />
 
-          <SaveButton onClick={handleSave} disabled={saving}>
-            {saving ? '저장 중...' : '저장'}
-          </SaveButton>
-        </MemoSection>
-      </PageWrap>
-    </>
+        <SaveButton onClick={handleSave} disabled={saving}>
+          {saving ? '저장 중...' : '저장'}
+        </SaveButton>
+      </MemoSection>
+    </PageWrap>
   );
 }

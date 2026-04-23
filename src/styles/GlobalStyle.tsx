@@ -1,3 +1,5 @@
+'use client';
+
 import { Global, css, useTheme } from '@emotion/react';
 import emotionReset from 'emotion-reset';
 
@@ -36,8 +38,7 @@ const GlobalStyle = function () {
         }
 
         html,
-        body,
-        #__next {
+        body {
           width: 100%;
           height: 100%;
           font-family: 'Pretendard Variable', Pretendard, -apple-system,

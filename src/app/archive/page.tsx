@@ -1,7 +1,9 @@
+'use client';
+
 import styled from '@emotion/styled';
 import React, { useEffect, useState } from 'react';
+import type { Metadata } from 'next';
 
-import SEO from '@/components/Layout/SEO';
 import ArchiveItemComp from '@/components/ArchiveItem';
 import { supabase } from '@/lib/supabase';
 import { ArchiveItem, ContentType, QueueType } from '@/typings/typings';
@@ -112,40 +114,37 @@ export default function ArchivePage() {
   }, [queue, type]);
 
   return (
-    <>
-      <SEO title="Archive" description="AI가 요약한 링크 아카이브" />
-      <PageWrap>
-        <Title>Archive</Title>
+    <PageWrap>
+      <Title>Archive</Title>
 
-        <FilterBar>
-          <TabGroup>
-            {QUEUES.map(q => (
-              <Tab key={q} active={queue === q} onClick={() => setQueue(q)}>
-                {q === 'all' ? '전체' : q}
-              </Tab>
-            ))}
-          </TabGroup>
-          <ChipGroup>
-            {TYPES.filter(t => t !== 'all').map(t => (
-              <Chip key={t} active={type === t} onClick={() => setType(type === t ? 'all' : t)}>
-                {t}
-              </Chip>
-            ))}
-          </ChipGroup>
-        </FilterBar>
+      <FilterBar>
+        <TabGroup>
+          {QUEUES.map(q => (
+            <Tab key={q} active={queue === q} onClick={() => setQueue(q)}>
+              {q === 'all' ? '전체' : q}
+            </Tab>
+          ))}
+        </TabGroup>
+        <ChipGroup>
+          {TYPES.filter(t => t !== 'all').map(t => (
+            <Chip key={t} active={type === t} onClick={() => setType(type === t ? 'all' : t)}>
+              {t}
+            </Chip>
+          ))}
+        </ChipGroup>
+      </FilterBar>
 
-        {loading ? (
-          <EmptyMessage>불러오는 중...</EmptyMessage>
-        ) : items.length === 0 ? (
-          <EmptyMessage>저장된 아이템이 없습니다.</EmptyMessage>
-        ) : (
-          <ItemGrid>
-            {items.map(item => (
-              <ArchiveItemComp key={item.id} item={item} />
-            ))}
-          </ItemGrid>
-        )}
-      </PageWrap>
-    </>
+      {loading ? (
+        <EmptyMessage>불러오는 중...</EmptyMessage>
+      ) : items.length === 0 ? (
+        <EmptyMessage>저장된 아이템이 없습니다.</EmptyMessage>
+      ) : (
+        <ItemGrid>
+          {items.map(item => (
+            <ArchiveItemComp key={item.id} item={item} />
+          ))}
+        </ItemGrid>
+      )}
+    </PageWrap>
   );
 }

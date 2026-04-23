@@ -1,10 +1,9 @@
+'use client';
+
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
-import { GetStaticProps } from 'next';
 
-import SEO from '@/components/Layout/SEO';
 import PostItemList from '@/components/PostList/PostItemList';
-import { getAllPosts, getAllCategories } from '@/lib/posts';
 import { CategoryItem, Post } from '@/typings/typings';
 
 const PageWrap = styled.div`
@@ -46,12 +45,12 @@ const Chip = styled.button<{ active: boolean }>`
   transition: all 0.15s ease-in-out;
 `;
 
-interface BlogIndexProps {
+interface Props {
   posts: Post[];
   categories: CategoryItem[];
 }
 
-export default function BlogIndex({ posts, categories }: BlogIndexProps) {
+export default function BlogIndexClient({ posts, categories }: Props) {
   const [selected, setSelected] = useState<string | null>(null);
 
   const filtered = selected
@@ -59,38 +58,25 @@ export default function BlogIndex({ posts, categories }: BlogIndexProps) {
     : posts;
 
   return (
-    <>
-      <SEO title="Blog" description="기술 블로그 포스트 목록" />
-      <PageWrap>
-        <Title>Blog</Title>
+    <PageWrap>
+      <Title>Blog</Title>
 
-        <FilterBar>
-          <Chip active={selected === null} onClick={() => setSelected(null)}>
-            전체 {posts.length}
+      <FilterBar>
+        <Chip active={selected === null} onClick={() => setSelected(null)}>
+          전체 {posts.length}
+        </Chip>
+        {categories.map(cat => (
+          <Chip
+            key={cat.fieldValue}
+            active={selected === cat.fieldValue}
+            onClick={() => setSelected(selected === cat.fieldValue ? null : cat.fieldValue)}
+          >
+            {cat.fieldValue} {cat.totalCount}
           </Chip>
-          {categories.map(cat => (
-            <Chip
-              key={cat.fieldValue}
-              active={selected === cat.fieldValue}
-              onClick={() => setSelected(selected === cat.fieldValue ? null : cat.fieldValue)}
-            >
-              {cat.fieldValue} {cat.totalCount}
-            </Chip>
-          ))}
-        </FilterBar>
+        ))}
+      </FilterBar>
 
-        <PostItemList posts={filtered} />
-      </PageWrap>
-    </>
+      <PostItemList posts={filtered} />
+    </PageWrap>
   );
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = getAllPosts().map(({ slug, frontmatter, readingTime }) => ({
-    slug,
-    frontmatter,
-    readingTime,
-  }));
-  const categories = getAllCategories();
-  return { props: { posts, categories } };
-};
