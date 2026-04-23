@@ -46,6 +46,7 @@
     "playwright": "^1.50.0",
     "prettier": "^3.8.1",
     "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "youtube-transcript": "^1.2.1"
   },
