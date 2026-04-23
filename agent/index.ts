@@ -1,19 +1,19 @@
 import * as dotenv from 'dotenv';
 dotenv.config({ path: '.env.local' });
 
-import { pollMessages } from '../.claude/skills/slack-poller/scripts/poll_messages';
-import { sendResponse } from '../.claude/skills/slack-poller/scripts/send_response';
+import { pollMessages } from './skills/slack/poll_messages';
+import { sendResponse } from './skills/slack/send_response';
 import {
   isValidUrl,
   detectContentType,
   isAccessible,
-} from '../.claude/skills/content-fetcher/scripts/validate_url';
-import { checkDuplicate } from '../.claude/skills/content-fetcher/scripts/check_duplicate';
-import { fetchArticle } from '../.claude/skills/content-fetcher/scripts/fetch_article';
-import { fetchArticlePlaywright } from '../.claude/skills/content-fetcher/scripts/fetch_article_playwright';
-import { fetchYouTube } from '../.claude/skills/content-fetcher/scripts/fetch_youtube';
-import { saveItem } from '../.claude/skills/db-publisher/scripts/save_item';
-import { getOffset, setOffset } from '../.claude/skills/db-publisher/scripts/manage_offset';
+} from './skills/fetcher/validate_url';
+import { checkDuplicate } from './skills/fetcher/check_duplicate';
+import { fetchArticle } from './skills/fetcher/fetch_article';
+import { fetchArticlePlaywright } from './skills/fetcher/fetch_article_playwright';
+import { fetchYouTube } from './skills/fetcher/fetch_youtube';
+import { saveItem } from './skills/db/save_item';
+import { getOffset, setOffset } from './skills/db/manage_offset';
 import OpenAI from 'openai';
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
