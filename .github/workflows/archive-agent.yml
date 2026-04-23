@@ -2,9 +2,7 @@ name: Archive Agent
 
 on:
   schedule:
-    # 비공개 저장소: */15 (월 ~1,440분)
-    # 공개 전환 후: */5 로 변경
-    - cron: '*/15 * * * *'
+    - cron: '0 */12 * * *'
   workflow_dispatch:
 
 concurrency:
