@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
-import QueueBadge from '@/components/QueueBadge';
+import QueueBadge from '@/components/archive/QueueBadge';
 import { supabase } from '@/lib/supabase';
 import { ArchiveItem, QueueType } from '@/typings/typings';
 

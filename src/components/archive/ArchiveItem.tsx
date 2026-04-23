@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import React from 'react';
-import { FiFileText, FiYoutube } from 'react-icons/fi';
 
 import { ArchiveItem as ArchiveItemType } from '@/typings/typings';
 import QueueBadge from './QueueBadge';

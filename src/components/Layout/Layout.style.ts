@@ -10,9 +10,12 @@ const fadeIn = keyframes`
 
 export const LayoutWrap = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: ${props => props.theme.colors.background};
+  color: ${props => props.theme.colors.text_1000};
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 `;
 
 export const Main = styled.main`

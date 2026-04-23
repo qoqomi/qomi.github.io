@@ -3,7 +3,7 @@
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
 
-import PostItemList from '@/components/PostList/PostItemList';
+import PostItemList from '@/components/Blog/PostItemList';
 import { CategoryItem, Post } from '@/typings/typings';
 
 const PageWrap = styled.div`

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import NotFound from '@/domains/404/NotFound';
+import NotFound from '@/components/404/NotFound';
 
 export const metadata: Metadata = { title: '404' };
 

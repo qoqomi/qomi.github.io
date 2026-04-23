@@ -77,15 +77,12 @@ ${content.slice(0, 3000)}
 }
 
 async function main() {
-  console.log('[agent] 시작');
 
   const lastTs = await getOffset();
-  console.log(`[agent] 마지막 처리 ts: ${lastTs}`);
 
   const messages = await pollMessages(lastTs);
 
   if (messages.length === 0) {
-    console.log('[agent] 새 메시지 없음. 종료.');
     return;
   }
 

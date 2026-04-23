@@ -6,7 +6,7 @@ import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 
 import { getAllSlugs, getPostBySlug } from '@/lib/posts';
-import BlogPostLayout from './BlogPostLayout';
+import BlogPostLayout from '../../../components/Blog/BlogPostLayout';
 
 export async function generateStaticParams() {
   return getAllSlugs().map(slug => ({ slug }));

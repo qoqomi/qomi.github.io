@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import React, { useEffect, useState } from 'react';
 import type { Metadata } from 'next';
 
-import ArchiveItemComp from '@/components/ArchiveItem';
+import ArchiveItemComp from '@/components/archive/ArchiveItem';
 import { supabase } from '@/lib/supabase';
 import { ArchiveItem, ContentType, QueueType } from '@/typings/typings';
 

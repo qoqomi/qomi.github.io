@@ -1,12 +1,8 @@
-import type { Metadata } from 'next';
 
 import { getAllPosts, getAllCategories } from '@/lib/posts';
-import BlogIndexClient from './BlogIndexClient';
+import BlogIndexClient from '../../components/Blog/BlogIndexClient';
 
-export const metadata: Metadata = {
-  title: 'Blog',
-  description: '기술 블로그 포스트 목록',
-};
+
 
 export default function BlogPage() {
   const posts = getAllPosts().map(({ slug, frontmatter, readingTime }) => ({
