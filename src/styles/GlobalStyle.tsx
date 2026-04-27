@@ -104,8 +104,8 @@ const GlobalStyle = function () {
         }
 
         ::selection {
-          background-color: rgb(254 190 152 / 80%);
-          color: #fff;
+          background-color: rgb(170 255 0 / 60%);
+          color: #111;
         }
 
         /* highlight.js */

@@ -22,7 +22,7 @@ function Header() {
   return (
     <HeaderWrap isHidden={isHidden}>
       <Nav>
-        <LogoText href="/">My Blog</LogoText>
+        <LogoText href="/">qomlog</LogoText>
         <NavItem>
           <NavIconLink href="/blog">Blog</NavIconLink>
           <NavIconLink href="/archive">Archive</NavIconLink>

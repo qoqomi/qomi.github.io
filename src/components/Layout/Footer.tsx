@@ -20,7 +20,7 @@ function Footer() {
     <FooterWrap>
       <Contents>
         <LogoWrap>
-          <LogoText href="/">My Blog</LogoText>
+          <LogoText href="/">qomlog</LogoText>
           <Copyright>{COPYRIGHT}</Copyright>
         </LogoWrap>
         <Menu>

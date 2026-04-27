@@ -39,8 +39,8 @@ export const theme: AppTheme = {
     darkgray_800: 'rgba(98, 92, 96, 0.8)',
     lightgray_500: 'rgba(241, 237, 233, 0.5)',
     text_1000: 'rgba(41, 40, 45, 1)',
-    lightprimary_500: 'rgba(254, 190, 152, 0.3)',
-    primary_1000: 'rgba(254, 190, 152, 1)',
+    lightprimary_500: 'rgba(170, 255, 0, 0.2)',
+    primary_1000: 'rgba(170, 255, 0, 1)',
     white_1000: 'rgba(255, 255, 255, 1)',
   },
 };
@@ -56,8 +56,8 @@ export const darkTheme: AppTheme = {
     darkgray_800: 'rgba(180, 176, 182, 0.9)',
     lightgray_500: 'rgba(40, 40, 45, 0.9)',
     text_1000: 'rgba(230, 228, 232, 1)',
-    lightprimary_500: 'rgba(254, 190, 152, 0.12)',
-    primary_1000: 'rgba(254, 190, 152, 1)',
+    lightprimary_500: 'rgba(170, 255, 0, 0.15)',
+    primary_1000: 'rgba(170, 255, 0, 1)',
     white_1000: 'rgba(255, 255, 255, 1)',
   },
 };
